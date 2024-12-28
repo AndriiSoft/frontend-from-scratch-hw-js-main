@@ -27,16 +27,16 @@ findCommonElements([1, 2, 3], [2, 3, 4]) // [2, 3]
 //     return false
 // }
 
-function findCommonElements(array1, array2) {
-    let newArray = [];
-    for (let i = 0; i < array1.length; i++) {
-        for (let j = 0; j < array2.length; j++) {
-            if (array1[i] === array2[j] && !includesElement(newArray, array1[i])) {
-                newArray.push(array1[i])
-            }
+function findCommonElements(firstArray, secondArray) {
+    let simpleArray = [];
+    for (let i = 0; i<secondArray.length; i ++) {
+        let target = secondArray[i];
+        if (firstArray.includes(target)) {
+            simpleArray.push(target);
+            console.log(target, simpleArray);
         }
     }
-    return newArray
+    return simpleArray
 }
 
 console.log(findCommonElements([1, 2, 3, 4, 5], [4, 5, 6, 7]))
