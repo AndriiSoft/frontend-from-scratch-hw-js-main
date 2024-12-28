@@ -24,19 +24,20 @@ function includesElement(array, element) {
             return true;
         }
     }
-    return false;
+    return false
 }
 
 function findCommonElements(array1, array2) {
     let newArray = [];
     for (let i = 0; i < array1.length; i++) {
-        if (includesElement(array2, array1[i]) && !includesElement(newArray, array1[i])) {
-            newArray.push(array1[i]);
+        for (let j = 0; j < array2.length; j++) {
+            if (array1[i] === array2[j] && !includesElement(newArray, array1[i])) {
+                newArray.push(array1[i])
+            }
         }
     }
-    return newArray;
+    return newArray
 }
-
 
 console.log(findCommonElements([1, 2, 3, 4, 5], [4, 5, 6, 7]))
 console.log(findCommonElements([1, 2, 3, 4, 5], [3, 4, 5, 6, 7]))
