@@ -30,22 +30,12 @@ function includesElement(array, element) {
 function findCommonElements(array1, array2) {
     let newArray = [];
     for (let i = 0; i < array1.length; i++) {
-        for (let j = 0; j < array2.length; j++) {
-            if (array1[i] === array2[j] && !includesElement(newArray, array1[i])) {
-                newArray.push(array1[i]);
-            }
+        if (includesElement(array2, array1[i]) && !includesElement(newArray, array1[i])) {
+            newArray.push(array1[i]);
         }
     }
     return newArray;
 }
-
-// Пример использования
-const array1 = [1, 2, 3, 4, 5];
-const array2 = [3, 4, 5, 6, 7];
-console.log(findCommonElements(array1, array2)); // [3, 4, 5]
-
-
-
 
 
 console.log(findCommonElements([1, 2, 3, 4, 5], [4, 5, 6, 7]))
