@@ -37,11 +37,15 @@ const gallery = {
     'The Scream': 'Edvard Munch',
 }
 
-function updateGallery(gallery, name, newValue) {
-    if (gallery.hasOwnProperty(name)) {
-        gallery[name] = newValue
+function updateGallery(gallery, key, newValue) {
+    if (gallery.hasOwnProperty(key)) {
+        gallery[key] = newValue
     } else {
-        gallery[name] = newValue
+        gallery[key] = newValue
     }
 }
 
+console.log(gallery)
+updateGallery(gallery, 'Mona Lisa', 'Leonardo da Vinci, 1503-1506')
+updateGallery(gallery, 'The Persistence of Memory', 'Salvador Dali')
+console.log(gallery)
