@@ -31,14 +31,34 @@ const cancelButton = document.getElementById('cancel')
 const countdownDisplay = document.getElementById('countdown')
 
 let isTimerStarted = false
-let timerId
+let timerId = null // Переменная для хранения ID активного таймера
 
-startButton.addEventListener('click', () => {
-  let counter = 3
+startButton.addEventListener('click', function () {
+    if (timerId !== null) {
+        return // Если таймер уже работает, ничего не делаем
+    }
 
-  // your code
-})
+    let counter = 3; // Начальное значение для обратного отсчета
+    countdownDisplay.textContent = counter.toString() // Устанавливаем начальное значение
 
-cancelButton.addEventListener('click', () => {
-  // your code
+    timerId = setInterval(function () {
+        if (counter > 0) {
+            counter-- // Уменьшаем счетчик
+            countdownDisplay.textContent = counter.toString() // Обновляем отображение
+        } else {
+            clearInterval(timerId) // Останавливаем таймер
+            timerId = null // Сбрасываем ID таймера
+            countdownDisplay.textContent = "🚀" // Отображаем ракету
+            // Ваш код после завершения обратного отсчета
+        }
+    }, 1000) // Интервал в 1 секунду
+});
+
+
+cancelButton.addEventListener('click', function () {
+    if (timerId !== null) { // Таймер работает, можно отменить
+        clearInterval(timerId) // Останавливаем таймер
+        timerId = null // Сбрасываем ID таймера
+        countdownDisplay.textContent = "Отменено"; // Отображаем сообщение
+    }
 })
