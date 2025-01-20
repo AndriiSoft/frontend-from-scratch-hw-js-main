@@ -42,7 +42,7 @@ startButton.addEventListener('click', function () {
     countdownDisplay.textContent = counter.toString() // Устанавливаем начальное значение
 
     timerId = setInterval(function () {
-        if (counter > 0) {
+        if (counter > 1) {
             counter-- // Уменьшаем счетчик
             countdownDisplay.textContent = counter.toString() // Обновляем отображение
         } else {
