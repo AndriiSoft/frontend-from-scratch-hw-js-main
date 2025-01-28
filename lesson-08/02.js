@@ -38,7 +38,7 @@ startButton.addEventListener('click', function () {
         return // Если таймер уже работает, ничего не делаем
     }
 
-    let counter = 3; // Начальное значение для обратного отсчета
+    let counter = 3 // Начальное значение для обратного отсчета
     countdownDisplay.textContent = counter.toString() // Устанавливаем начальное значение
 
     timerId = setInterval(function () {
@@ -52,7 +52,7 @@ startButton.addEventListener('click', function () {
             // Ваш код после завершения обратного отсчета
         }
     }, 1000) // Интервал в 1 секунду
-});
+})
 
 
 cancelButton.addEventListener('click', function () {
